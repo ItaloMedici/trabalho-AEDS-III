@@ -13,10 +13,10 @@ int main (int argc, char *argv[] ){
     return 0;
   }
 
+  char teste2;
+
   int sizeOfFile = sizeFile(argv[2]);
   char textString[sizeOfFile];
-
-  int teste;
 
   openFile("text.txt", sizeOfFile, textString);
   
