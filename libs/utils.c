@@ -51,6 +51,8 @@ int sizeFile(char *linkFile){
 int getTypeResearch(char *research){
   int type = -1;
 
+  // Compara a pesquisa obtida pelo usuário com os nomes das pesquisas,
+  // Se forem iguais, retorna o inteiro do seu respectivo tipo
   if(strcmp(research, "pseq") == 0) type = 0;
   if(strcmp(research, "pbin") == 0) type = 1;
   if(strcmp(research, "arvore") == 0) type = 2;
@@ -66,8 +68,10 @@ int wordsCounter(char *string) {
   char *words;
   int counter = 0;
 
+  // Faz uma copia do texto
   copy = strdup(string);
   
+  // Remove todo tipo de caractere passado no segundo parâmetro
   words = strtok(copy, " 1234567890,.;/´`!?@#$¨&*()-_|\"\n\t");
 
   while(words != NULL) {
@@ -79,6 +83,7 @@ int wordsCounter(char *string) {
     words = strtok(NULL, " 1234567890,.;/´`!?@#$¨&*()-_|\"\n\t");
   }
 
+  // Libera os espaços alocados
   free(copy);
   free(words);
 

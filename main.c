@@ -10,11 +10,20 @@ int main (int argc, char *argv[] ){
   int typeResearch = 0;
   int sizeOfFile;
 
-  // Verifica se o 2 argumento é falso
+  // Verifica se o 2 argumento existe
   if(argv[2] == NULL) {
     printf("Insira um arquivo para pesquisa");
     return 0;
   }
+
+  // Nomes dos tipos de pesquisa, usaremos para imprimir.
+  char namesResearch[][30] = {
+    "Pesquisa Sequencial",
+    "Pesquisa Binaria",
+    "Arvore Binaria",
+    "Hash Aberto",
+    "Hash Lista"
+  };
   
   // Recebe qual o tipo de pesquisa passada pelo usuário
   typeResearch = getTypeResearch(argv[1]);
@@ -34,7 +43,8 @@ int main (int argc, char *argv[] ){
     puts(textString);
 
     printf("Contagem: %i", wordsCounter(textString));
-    
+
+    puts(namesResearch[typeResearch]);
 
   } else {
     printf("Pesquisa invalida");
