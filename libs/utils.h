@@ -1,6 +1,7 @@
 #include<string.h>
 #include<stdio.h>
 #include<stdlib.h>
+#include<math.h>
 
 void openFile(char *linkFile, int sizeFile, char *string);
 int sizeFile(char *linkFile);

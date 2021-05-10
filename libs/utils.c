@@ -80,6 +80,7 @@ int wordsCounter(char *string) {
       counter++;
     }
 
+    // avança a checagem para a proxima palavra
     words = strtok(NULL, " 1234567890,.;/´`!?@#$¨&*()-_|\"\n\t");
   }
 
