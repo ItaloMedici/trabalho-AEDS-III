@@ -12,7 +12,7 @@ void openFile(char *linkFile, int sizeFile, char *string){
     // Mapeia o erro obtido e imprime a mensagem de erro na saida
     perror("Erro no arquivo");
     exit(0);
-  }
+  } 
 
   memset(string, '\0', sizeFile);
   

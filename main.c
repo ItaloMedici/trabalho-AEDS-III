@@ -42,9 +42,12 @@ int main (int argc, char *argv[] ){
 
     puts(textString);
 
-    printf("Contagem: %i", wordsCounter(textString));
+    int counter = binarySearch(textString, textString[0]);
 
-    puts(namesResearch[typeResearch]);
+    printf("Contagem: %i\nPalavra %s pareceu: %i", wordsCounter(textString), textString[0], counter);
+
+    //puts(namesResearch[typeResearch]);
+
 
   } else {
     printf("Pesquisa invalida");
