@@ -5,6 +5,7 @@
 
 // Libs customizadas
 #include "libs/utils.h"
+#include "libs/separator.h"
 
 int main (int argc, char *argv[] ){
   int typeResearch = 0;
@@ -15,6 +16,12 @@ int main (int argc, char *argv[] ){
     printf("Insira um arquivo para pesquisa");
     return 0;
   }
+
+  //Variável para calcular tempo de execução
+  clock_t time;
+
+  //Atribui o valor inicial de execução
+  time = clock();
 
   // Nomes dos tipos de pesquisa, usaremos para imprimir.
   char namesResearch[][30] = {
@@ -40,14 +47,23 @@ int main (int argc, char *argv[] ){
     // Abre o arquivo e copia para o vetor textString
     openFile("text.txt", sizeOfFile, textString);
 
-    puts(textString);
+    printf("\n\tPALAVRA\t->\tFREQUENCIA\n\n");
 
-    int counter = binarySearch(textString, textString[0]);
+   /* atraves da função splitter conseguimos:
+    - Chamar a devida estrutura
+    - Tratar a string   
+    - Imprmir as palavras e sua frequencia atraves da pesquisa escolhida
+    */
+    splitter(textString, typeResearch);
 
-    printf("Contagem: %i\nPalavra %s pareceu: %i", wordsCounter(textString), textString[0], counter);
+    //Encerra o tempo de execução
+    time = clock() - time;
+        
 
-    //puts(namesResearch[typeResearch]);
-
+    printf("\n\n\tINFO");
+    printf("\n\nPalavras Unicas: %d", getUnicWords());
+    printf("\nTipo de pesquisa: %s", namesResearch[typeResearch]);
+    printf("\nTempo de execução: %g ms", (double) time );
 
   } else {
     printf("Pesquisa invalida");

@@ -1,7 +1,7 @@
 #include "binarySearch.h"
 
 // Estrutura de strings 
-stringStruct *binStringStruct[MAX_LETTERS];
+stringStruct *binStringStruct[MAX_WORDS];
 
 // Variável global de contagem de uso da estrurura
 int usageBinCounter = 0;
@@ -9,6 +9,8 @@ int usageBinCounter = 0;
 int binarySearch(int min, int max, char *word){
     // variável de chute, que será a posição media do vetor
     int guess;
+
+    if(max == 0) binInjection(word);
 
     // Equando o maior valor for maior ou igual ao menor
     while (max >= min) {

@@ -1,5 +1,6 @@
 
-#define MAX_LETTERS 1024
+// máximo de palavras únicas aceitas
+#define MAX_WORDS 300
 
 typedef struct stringStruct {
     char word[21];

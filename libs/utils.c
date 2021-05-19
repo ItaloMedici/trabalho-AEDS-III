@@ -1,5 +1,6 @@
 #include "utils.h"
 
+// Função para abrir o arquivo e retornar seu texto tratado
 void openFile(char *linkFile, int sizeFile, char *string){
   FILE *file;
 
@@ -25,8 +26,12 @@ void openFile(char *linkFile, int sizeFile, char *string){
   }
 
   fclose(file);
+
+  // trata as palavras alfabeticamente lidas no arquivo
+  sort(string);
 }
 
+// retorna o tamanho do arquivo
 int sizeFile(char *linkFile){
   int length;
 
@@ -48,6 +53,7 @@ int sizeFile(char *linkFile){
   return length;
 }
 
+// retorna o tipo da pesquisa passado
 int getTypeResearch(char *research){
   int type = -1;
 
@@ -62,6 +68,7 @@ int getTypeResearch(char *research){
   return type;
 }
 
+// contador de palavras (também repetidas)
 int wordsCounter(char *string) {
 
   char *copy;
@@ -92,4 +99,45 @@ int wordsCounter(char *string) {
   words = NULL;
 
   return counter;
+}
+
+
+// Função para ordernas as plavras
+void sort(char *string) {
+
+  int count = wordsCounter(string);
+  char copyString[count][21];
+  char *word = NULL;
+  char tmp[20];
+  
+  // faz uma copia da string para uma matriz
+  word = strtok(string, " 1234567890,.;/´`!?@#$¨&*()-_|\"\n\t");
+  for (int i=0; word != NULL; i++){
+    
+    if(strlen(word) <= 21){
+      strcpy(copyString[i], word);
+    }
+
+    word = strtok(NULL, " 1234567890,.;/´`!?@#$¨&*()-_|\"\n\t");
+  }
+
+ // ordena as palavras 
+  for(int i = 0; i < count; i++){
+    for(int j = i + 1; j < count; j++){
+      if(strcmp(copyString[j], copyString[i]) < 0){
+        strcpy(tmp, copyString[i]);
+        strcpy(copyString[i], copyString[j]);
+        strcpy(copyString[j], tmp);
+      }
+    }
+  }
+
+  // concaneta as palvras já ordenas novamente para a string
+  strcpy(string, NULL);
+  for(int i = 0; i < count; i++){
+    strcat(string, copyString[i]);
+    strcat(string, " ");
+  }
+  
+  free(word);
 }
