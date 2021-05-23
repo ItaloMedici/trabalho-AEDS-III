@@ -7,6 +7,12 @@
     "binarysearch.h": "c",
     "utils.h": "c",
     "string.h": "c",
-    "string": "c"
+    "string": "c",
+    "separator.h": "c",
+    "stdio.h": "c",
+    "structures.h": "c",
+    "routes.h": "c",
+    "bintreesearch.h": "c",
+    "structmodels.h": "c"
   }
 }

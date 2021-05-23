@@ -2,12 +2,14 @@
 #include<stdlib.h>
 #include<string.h>
 #include<time.h>
+#include<locale.h>
 
 // Libs customizadas
-#include "libs/utils.h"
 #include "libs/separator.h"
 
 int main (int argc, char *argv[] ){
+  setlocale(LC_ALL, NULL);
+
   int typeResearch = 0;
   int sizeOfFile;
 
@@ -45,7 +47,7 @@ int main (int argc, char *argv[] ){
     char textString[sizeOfFile];
     
     // Abre o arquivo e copia para o vetor textString
-    openFile("text.txt", sizeOfFile, textString);
+    openFile("file.txt", sizeOfFile, textString);
 
     printf("\n\tPALAVRA\t->\tFREQUENCIA\n\n");
 
@@ -59,10 +61,9 @@ int main (int argc, char *argv[] ){
     //Encerra o tempo de execução
     time = clock() - time;
         
-
     printf("\n\n\tINFO");
-    printf("\n\nPalavras Unicas: %d", getUnicWords());
-    printf("\nTipo de pesquisa: %s", namesResearch[typeResearch]);
+    printf("\n\nPesquisa selecionada: %s", namesResearch[typeResearch]);
+    printf("\nPalavras Unicas encontradas: %d", getUnicWords());
     printf("\nTempo de execução: %g ms", (double) time );
 
   } else {
