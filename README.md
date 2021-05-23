@@ -6,7 +6,7 @@ Elaborar um sistema onde o usuário passara um arquivo e uma forma de pesquisa d
 
 Formas de pesquisas:
 - Pesquisa Binaria Sequencial
-- Tabela Hash
+- Pesquisa Sequencial
 - Arvore Binária
 - ...
 
@@ -21,10 +21,10 @@ $ git clone https://github.com/ItaloMedici/trabalho-AEDS-III
 
 Compile
 ```
-$ gcc -o main.c (lib final em desenvolvimento)
+$ gcc -o main.c libs/sequentialSearch.c libs/binarySearch.c libs/separator.c libs/utils.c libs/routes.c libs/binTreeSearch.c
 ```
 
 Rode
 ```
-$ ./main (tipo de pesquisa) (arquivo .txt)
+$ ./main (tipo de pesquisa) file.txt
 ```
