@@ -2,5 +2,5 @@
 
 int sequentialSearch (char *word, int totalWord);
 int injectSeq(char *word);
-void printBinSearch(int wordsCount);
+void printSeqSearch(int wordsCount);
 int getSeqUsageCount();

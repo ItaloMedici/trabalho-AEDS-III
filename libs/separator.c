@@ -15,19 +15,22 @@ int splitter(char *string, int typeOfResearch){
     
     while(currentWord != NULL) {
         if(unicWords < MAX_WORDS || strcmp(currentWord, nextWord) == 0) {
-            nextWord = strcpy(nextWord, currentWord);
+            nextWord = strdup(currentWord);
 
             /*Chamamos a função de de controle de estrutura passando a palaavra atual 
             e a contagem atual de palavras únicas, rerornando 1 e chama seu respectivo
             tipo de pesquisa
             */
-            unicWords += structuresControl(currentWord, typeOfResearch, unicWords);
+            unicWords += structuresDriver(currentWord, typeOfResearch, unicWords);
         }
         currentWord = strtok(NULL, " ");
     }
 
     // Após tratarmos com nossa pesquisa chamos a sua respectiva função de imprimir
-    printCall(typeOfResearch, unicWords);
+    printDriver(typeOfResearch, unicWords);
+
+    currentWord = NULL;
+    nextWord = NULL;
 }
 
 int getUnicWords() {

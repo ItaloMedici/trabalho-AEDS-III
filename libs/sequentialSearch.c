@@ -1,17 +1,18 @@
 #include "sequentialSearch.h"
+#include "separator.h"
 
-stringStruct *sequentialStruct[MAX_WORDS];
+stringStruct *seqStruct[MAX_WORDS];
 
 int usageSeqCounter = 0;
 
 int sequentialSearch (char *word, int totalWord) {
 
-  if (totalWord == 0) injectSeq(word);
+  if (totalWord == 0) return injectSeq(word);
 
   for(int i = 0; i<totalWord; i++) {
     usageSeqCounter++;
-    if(strcmp(sequentialStruct[i]->word, word) == 0){
-      sequentialStruct[i]->usageCounter++;
+    if(strcmp(seqStruct[i]->word, word) == 0){
+      seqStruct[i]->usageCounter++;
       return 0;
     }
   }
@@ -23,26 +24,26 @@ int injectSeq(char *word) {
     int position = getUnicWords();
 
     // aloca o espaço da palavra
-    sequentialStruct[position] = (stringStruct *) malloc(sizeof(stringStruct));
+    seqStruct[position] = (stringStruct *) malloc(sizeof(stringStruct));
     
     // verifica se está nulo
-    if(sequentialStruct[position] == NULL){
+    if(seqStruct[position] == NULL){
         printf("Error");
         exit(0);
     }
 
     // copia a palavra para e estrutura
-    strcpy(sequentialStruct[position]->word, word);
-    sequentialStruct[position]->usageCounter = 1;
+    strcpy(seqStruct[position]->word, word);
+    seqStruct[position]->usageCounter = 1;
 
     return 1;
 }
 
 // Função para impimir a estrutura
-void printBinSearch(int wordsCount){
-    for(int i=0; i<wordsCount; i++){
-        pritnf("\n%-20s\t->\t%d", sequentialStruct[i]->word, sequentialStruct[i]->usageCounter);
-    }
+void printSeqSearch(int wordsCount){
+  for(int i=0; i<wordsCount; i++){
+    printf("\n%-20s\t->\t%d", seqStruct[i]->word, seqStruct[i]->usageCounter);
+  }
 }
 
 int getSeqUsageCount() {
